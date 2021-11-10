@@ -1,0 +1,12 @@
+
+{
+    "singleQuote": false,
+    "trailingComma": "all",
+    "semi": true,
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
