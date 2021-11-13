@@ -1,11 +1,14 @@
 <template>
   <div class="page">
-    <v-system-bar color="#536DFE"></v-system-bar>
+    <v-system-bar color="#212121"></v-system-bar>
 
-    <v-app-bar color="#304FFE" elevation="4">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar color="#D00000">
+      <v-app-bar-nav-icon
+        class="textColor"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="poninterText" @click="goTo('/')"
+      <v-toolbar-title class="text-h6 poninterText textColor" @click="goTo('/')"
         >Menu</v-toolbar-title
       >
 
@@ -23,16 +26,15 @@
       <v-divider></v-divider>
 
       <v-list nav dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
+        <v-list-item-group v-model="group" active-class="activeText">
           <v-list-item
             v-for="(item, index) in routes"
             :key="index"
             @click="goTo(item.path)"
           >
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
+            <v-list-item-title
+              ><strong>{{ item.name }}</strong></v-list-item-title
+            >
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -77,5 +79,13 @@ export default Vue.extend({
 
 .poninterText:hover {
   cursor: pointer;
+}
+
+.textColor {
+  color: white !important;
+}
+
+.activeText {
+  color: #d00000 !important;
 }
 </style>
