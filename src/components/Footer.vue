@@ -1,16 +1,18 @@
 <template>
   <div>
-    <v-footer padless color="#304FFE">
-      <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} — <strong>José Bieco</strong>
+    <v-footer padless color="#D00000">
+      <v-col class="text-center textColor" cols="12">
+        <strong class="poninterText" @click="openGit()">José Bieco</strong>
+        —
+        {{ new Date().getFullYear() }}
       </v-col>
     </v-footer>
 
     <v-bottom-navigation
       :value="value"
-      color="#304FFE"
+      color="#ffffff"
       grow
-      background-color="#BDBDBD"
+      background-color="#212121"
       rounded="true"
     >
       <v-btn>
@@ -39,5 +41,21 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "Footer",
+
+  methods: {
+    openGit() {
+      window.open("https://github.com/JoseBieco", "_blank");
+    },
+  },
 });
 </script>
+
+<style scoped>
+.poninterText:hover {
+  cursor: pointer;
+}
+
+.textColor {
+  color: white !important;
+}
+</style>
