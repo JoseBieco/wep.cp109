@@ -15,22 +15,14 @@
       background-color="#212121"
       rounded="true"
     >
-      <v-btn>
-        <span>Recents</span>
+      <v-btn
+        v-for="(item, index) in routes"
+        :key="index"
+        @click="goTo(item.path)"
+      >
+        <span>{{ item.name }}</span>
 
         <v-icon>mdi-history</v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span>Favorites</span>
-
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span>Nearby</span>
-
-        <v-icon>mdi-map-marker</v-icon>
       </v-btn>
     </v-bottom-navigation>
   </div>
@@ -42,9 +34,21 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Footer",
 
+  data: () => ({
+    routes: [
+      { name: "Home", path: "/" },
+      { name: "Animes", path: "animes" },
+      { name: "One Piece", path: "one_piece" },
+    ],
+  }),
+
   methods: {
     openGit() {
       window.open("https://github.com/JoseBieco", "_blank");
+    },
+
+    goTo(path: string): void {
+      this.$router.push(path);
     },
   },
 });
