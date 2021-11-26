@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import OnePiece from "../views/OnePiece.vue";
+import Animes from "../views/Animes.vue";
 
 Vue.use(VueRouter);
 
@@ -11,14 +13,14 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/schedule",
-    name: "Schedule",
-    component: Home,
+    path: "/one_piece",
+    name: "One Piece",
+    component: OnePiece,
   },
   {
-    path: "/contacts",
-    name: "Contacts",
-    component: Home,
+    path: "/animes",
+    name: "Animes",
+    component: Animes,
   },
 ];
 
