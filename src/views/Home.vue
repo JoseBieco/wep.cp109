@@ -1,54 +1,41 @@
 <template>
   <v-content>
     <div class="container">
-      <v-card
-        elevation="5"
+      <AnimeCard
         v-for="info in infos"
         :key="info.character"
-        class="card"
-      >
-        <v-card-title>{{ info.character }}</v-card-title>
-        <v-card-subtitle>{{ info.anime }}</v-card-subtitle>
-        <v-card-text v-if="info.quote.length < 190">
-          "<i>{{ info.quote }}</i> "
-        </v-card-text>
-        <v-card-text v-else>
-          <i>"{{ info.quote.split(/(.{190})/).filter((O) => O)[0] }}...</i>"
-        </v-card-text>
-      </v-card>
+        :img_url="null"
+        :character="info.character"
+        :anime="info.anime"
+        :quote="info.quote"
+      ></AnimeCard>
     </div>
   </v-content>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import axios from "axios";
+import AnimeCard from "../components/AnimeCard.vue";
 
 export default Vue.extend({
   name: "Home",
-  data() {
-    return {
-      infos: [null],
-    };
+  components: {
+    AnimeCard,
+  },
+  data: function () {
+    return {};
   },
 
-  methods: {
-    getData() {
-      axios
-        .get(
-          "https://animechan.vercel.app/api/quotes/anime?title=naruto&page=1",
-        )
-        .then((response) => {
-          this.infos = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+  methods: {},
+
+  computed: {
+    infos() {
+      return this.$store.state.naruto;
     },
   },
 
-  created() {
-    this.getData();
+  mounted() {
+    this.$store.dispatch("getNaruto");
   },
 });
 </script>
@@ -61,11 +48,5 @@ export default Vue.extend({
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-}
-
-.card {
-  margin: 0.5rem;
-  min-height: 6rem;
-  width: 12rem;
 }
 </style>
