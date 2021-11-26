@@ -53,8 +53,8 @@ export default Vue.extend({
     group: null,
     routes: [
       { name: "Home", path: "/" },
-      { name: "Agenda", path: "schedule" },
-      { name: "Contatos", path: "contacts" },
+      { name: "Animes", path: "animes" },
+      { name: "One Piece", path: "one_piece" },
     ],
   }),
 
