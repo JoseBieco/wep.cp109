@@ -8,10 +8,22 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="text-h6 poninterText textColor" @click="goTo('/')"
-        >Vuenimes</v-toolbar-title
+      <v-toolbar-title
+        class="text-h6 poninterText textColor"
+        @click="goTo('/')"
       >
-
+        Vuenimes
+      </v-toolbar-title>
+      <div class="nav-items">
+        <div
+          class="nav-item"
+          v-for="(item, index) in routes"
+          :key="index"
+          @click="goTo(item.path)"
+        >
+          <strong>{{ item.name }}</strong>
+        </div>
+      </div>
       <v-spacer></v-spacer>
     </v-app-bar>
 
@@ -55,6 +67,7 @@ export default Vue.extend({
       { name: "Home", path: "/" },
       { name: "Animes", path: "animes" },
       { name: "One Piece", path: "one_piece" },
+      { name: "Synopsis", path: "synopsis" },
     ],
   }),
 
@@ -86,6 +99,19 @@ export default Vue.extend({
 }
 
 .activeText {
-  color: #FF0055 !important;
+  color: #ff0055 !important;
+}
+
+.nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  cursor: pointer;
+  color: white;
+  padding: 1rem;
 }
 </style>
