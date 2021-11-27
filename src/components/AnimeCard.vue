@@ -28,12 +28,13 @@
       </v-card-actions>
 
       <v-expand-transition>
-        <div v-show="show">
+        <div v-show="show" class="facts">
           <v-divider></v-divider>
 
           <v-card-text v-for="(fact, index) in facts" :key="index">
             {{ fact }}
           </v-card-text>
+          <v-divider></v-divider>
         </div>
       </v-expand-transition>
     </v-card-text>
@@ -61,5 +62,10 @@ export default Vue.extend({
 
 .v-image__image {
   filter: brightness(0.65) !important;
+}
+
+.facts {
+  height: 15rem;
+  overflow: auto;
 }
 </style>

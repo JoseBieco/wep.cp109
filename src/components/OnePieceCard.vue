@@ -46,6 +46,6 @@ export default Vue.extend({
 }
 
 .clicked {
-  border: 2px solid #FF0055;
+  border: 1px solid #ff0055;
 }
 </style>
