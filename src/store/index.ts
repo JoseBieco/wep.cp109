@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-import { IAnimes, IOnePieceCharacter } from "../interfaces/animes.interface";
+import { IAnimes } from "../interfaces/animes.interface";
 
 Vue.use(Vuex);
 
@@ -97,6 +97,17 @@ export default new Vuex.Store({
         akuma_no_mi: "Yomi Yomi no Mi",
         bounty: "83.000.000",
       },
+
+      {
+        character: {
+          name: "Franky",
+          img: "https://i.pinimg.com/originals/c6/e0/07/c6e0070680dd9de4fa03be7d719c3cc5.jpg",
+          age: 36,
+        },
+        position: "Shipwright",
+        akuma_no_mi: "None",
+        bounty: "94.000.000",
+      },
     ],
   },
 
@@ -113,6 +124,7 @@ export default new Vuex.Store({
       state.animes = [];
     },
   },
+
   actions: {
     getNaruto({ commit }) {
       axios
