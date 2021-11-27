@@ -4,7 +4,6 @@
       <AnimeCard
         v-for="info in infos"
         :key="info.character"
-        :img_url="null"
         :character="info.character"
         :anime="info.anime"
         :quote="info.quote"
@@ -43,10 +42,10 @@ export default Vue.extend({
 <style scoped>
 .container {
   height: 100%;
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 }
 </style>
