@@ -9,7 +9,7 @@
       <v-card-title>{{ character }}</v-card-title>
     </v-img>
     <v-card-title v-else>{{ character }}</v-card-title>
-    <v-card-subtitle v-if="img_url">{{ anime }}</v-card-subtitle>
+    <v-card-subtitle v-if="anime">{{ anime }}</v-card-subtitle>
     <v-card-text v-if="quote && quote.length < 190">
       "<i>{{ quote }}</i> "
     </v-card-text>
@@ -67,5 +67,13 @@ export default Vue.extend({
 .facts {
   height: 15rem;
   overflow: auto;
+}
+
+.v-card__actions {
+  padding: 0 !important;
+}
+
+.v-card__text {
+  padding: 8px !important;
 }
 </style>
