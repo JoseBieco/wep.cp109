@@ -1,20 +1,41 @@
 <template>
   <v-card elevation="5" class="card">
     <v-img
-      v-if="img_url !== null"
+      v-if="img_url"
       class="white--text align-end"
-      height="200px"
+      height="300px"
       :src="img_url"
     >
       <v-card-title>{{ character }}</v-card-title>
     </v-img>
     <v-card-title v-else>{{ character }}</v-card-title>
-    <v-card-subtitle>{{ anime }}</v-card-subtitle>
-    <v-card-text v-if="quote.length < 190">
+    <v-card-subtitle v-if="img_url">{{ anime }}</v-card-subtitle>
+    <v-card-text v-if="quote && quote.length < 190">
       "<i>{{ quote }}</i> "
     </v-card-text>
+    <v-card-text v-else-if="quote">
+      <i>"{{ quote.substr(0, 190) }}...</i>"
+    </v-card-text>
     <v-card-text v-else>
-      <i>"{{ quote.split(/(.{190})/).filter((O) => O)[0] }}...</i>"
+      <v-card-actions>
+        <v-btn color="#FF0055" text @click="show = !show"> Facts </v-btn>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon @click="show = !show">
+          <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
+        </v-btn>
+      </v-card-actions>
+
+      <v-expand-transition>
+        <div v-show="show">
+          <v-divider></v-divider>
+
+          <v-card-text v-for="(fact, index) in facts" :key="index">
+            {{ fact }}
+          </v-card-text>
+        </div>
+      </v-expand-transition>
     </v-card-text>
   </v-card>
 </template>
@@ -24,14 +45,21 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "AnimeCard",
-  props: ["img_url", "character", "anime", "quote"],
+  props: ["img_url", "character", "anime", "quote", "facts"],
+  data: () => ({
+    show: false,
+  }),
 });
 </script>
 
-<style scoped>
+<style>
 .card {
   margin: 0.5rem;
   min-height: 6rem;
-  width: 12rem;
+  width: 20rem;
+}
+
+.v-image__image {
+  filter: brightness(0.65) !important;
 }
 </style>
