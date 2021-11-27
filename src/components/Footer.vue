@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer padless color="#D00000">
+    <v-footer padless color="#FF0055">
       <v-col class="text-center textColor" cols="12">
         <strong class="poninterText" @click="openGit()">José Bieco</strong>
         —
@@ -10,9 +10,10 @@
 
     <v-bottom-navigation
       :value="value"
-      color="#ffffff"
+      color="#FF0055"
       grow
       background-color="#212121"
+      dark
       rounded="true"
     >
       <v-btn
