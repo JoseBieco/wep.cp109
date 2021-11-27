@@ -2,14 +2,14 @@
   <div class="page">
     <v-system-bar color="#212121"></v-system-bar>
 
-    <v-app-bar color="#D00000">
+    <v-app-bar color="#FF0055">
       <v-app-bar-nav-icon
         class="textColor"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
       <v-toolbar-title class="text-h6 poninterText textColor" @click="goTo('/')"
-        >Menu</v-toolbar-title
+        >Vuenimes</v-toolbar-title
       >
 
       <v-spacer></v-spacer>
@@ -18,7 +18,7 @@
     <v-navigation-drawer v-model="drawer" absolute bottom temporary>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6"> Menu </v-list-item-title>
+          <v-list-item-title class="text-h6"> Vuenimes </v-list-item-title>
           <v-list-item-subtitle> List items </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -86,6 +86,6 @@ export default Vue.extend({
 }
 
 .activeText {
-  color: #d00000 !important;
+  color: #FF0055 !important;
 }
 </style>
