@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import OnePiece from "../views/OnePiece.vue";
 import Animes from "../views/Animes.vue";
+import Synopsis from "../views/Synopsis.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: "/animes",
     name: "Animes",
     component: Animes,
+  },
+  {
+    path: "/synopsis",
+    name: "Synopsis",
+    component: Synopsis,
   },
 ];
 
