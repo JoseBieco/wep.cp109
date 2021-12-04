@@ -68,6 +68,7 @@ export default Vue.extend({
       { name: "Animes", path: "animes" },
       { name: "One Piece", path: "one_piece" },
       { name: "Synopsis", path: "synopsis" },
+      { name: "Filter bounty", path: "filtered" },
     ],
   }),
 
