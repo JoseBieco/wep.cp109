@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import OnePiece from "../views/OnePiece.vue";
 import Animes from "../views/Animes.vue";
 import Synopsis from "../views/Synopsis.vue";
+import FilteredBounty from "../views/FilteredBounty.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes: Array<RouteConfig> = [
     path: "/synopsis",
     name: "Synopsis",
     component: Synopsis,
+  },
+  {
+    path: "/filtered",
+    name: "Filter bounty",
+    component: FilteredBounty,
   },
 ];
 
