@@ -10,6 +10,7 @@
           name="input-bounty"
           hint="Press the search button to apply the filter"
           outlined
+          color="#FF0055"
           @click:append="setBounty()"
         ></v-text-field>
       </div>
