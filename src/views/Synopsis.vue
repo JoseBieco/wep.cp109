@@ -32,13 +32,7 @@ export default Vue.extend({
   name: "Synopsis",
   data: () => ({}),
 
-  methods: {
-    computed: {
-      characters() {
-        return this.$store.state.one_piece;
-      },
-    },
-  },
+  methods: {},
 });
 </script>
 
