@@ -149,6 +149,9 @@ export default new Vuex.Store({
             item.animeDescription = { ...anime };
             dispatch("loadFactsFromAnime", item);
           });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
 
@@ -161,8 +164,19 @@ export default new Vuex.Store({
         .then((response) => {
           anime.facts = response.data.data.map((item: any) => item.fact);
           commit("ADD_ANIME", anime);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },
   modules: {},
+
+  getters: {
+    bountyOverValue: (state) => (bounty: number) => {
+      return state.one_piece.filter((item) => {
+        if (parseInt(item.bounty.replace(/[.]+/g, "")) >= bounty) return item;
+      });
+    },
+  },
 });
