@@ -15,3 +15,9 @@
 
 ### Page 4
 ![image](./src/assets/synopsisPage.png)
+
+## AF3
+### Getter usage 1
+![image](./src/assets/getter1.png)
+### Getter usage 2
+![image](./src/assets/getter2.png)
